@@ -11,11 +11,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "lab" {
-  name     = "tf-learning-rg"
-  location = "Japan East"
+  name     = var.resource_group_name
+  location = var.location
 
   tags = {
-    Environment = "Learning"
+    Environment = var.environment
     ManagedBy   = "Terraform"
+    Project     = "Azure-IaC-Lab"
   }
 }
